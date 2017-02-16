@@ -1,0 +1,60 @@
+html body {
+	width: 99%;	
+	margin: 0;
+	padding: 0;
+}
+
+.mapContainer {
+	position: relative;
+	width: 1350px;
+	height: 850px;
+	margin: auto;
+	border: 1px solid black;	
+}
+
+#mainMap {
+	border: 3px solid black;
+	float: left;
+}
+
+#partOfMap {
+	display: inline-block;
+	height: 400px;
+	width: 400px;
+	overflow: hidden;
+	border: 3px solid black;
+	border-radius: 5px;
+	position: relative;	
+}
+
+#wrapper {
+	float: right;
+}
+
+
+#innerImg {
+	position: absolute;
+}
+
+
+#cursor {
+	position: absolute;
+	z-index: 9999;
+	top:184px;
+	left:180px;
+}
+
+iframe {
+	display: none;
+}
+
+#pointer {
+	position: absolute;
+	z-index: 9999;
+	
+}
+
+#mainMapWrapper {
+	margin: 0;
+	padding: 0;
+}

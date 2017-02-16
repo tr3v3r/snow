@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#out {
+			width: 396px;
+			
+		}
+
+		#wrapper {
+			position: relative;
+			display: inline-block;
+		}
+
+		#result {
+			position: absolute;
+			top: 20px;
+			left: 0px;
+			background: #c3b091;
+			width: 400px;
+			
+			
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			list-style-type: none;
+		}
+
+		li:hover{
+			background: red;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+<form id="citys" >
+
+<input type="text" name="" id= "inn">
+<button id="button">Ok</button>
+<div id="wrapper"><input type="text" name="" id = "out">
+<div id="result">
+	
+</div></div>
+
+</form>
+
+<script type="text/javascript" src = "result.js"></script>
+<script>
+var listIsMade = false;
+citys.onkeyup = function() {
+
+	
+
+	if( checkCityName(inn.value) && !listIsMade ) makeListOfResults(cityBase[inn.value]);
+	else if (checkCityName(inn.value) && listIsMade)  return;
+	else clearResultField();
+
+	
+	
+
+	function checkCityName(prop) {
+		
+		if(cityBase[prop]) return true;
+		return false;
+	}
+
+
+	function makeListOfResults(prop) {
+		
+
+		var ul = document.createElement("ul");
+		var text;
+
+		
+
+		while(prop) {
+			makeList(prop)
+			prop = prop.next;
+		}
+
+		result.appendChild(ul);
+		listIsMade = true;
+
+
+		function makeList(prop) {
+			text = "Район "+prop.districts +" "+prop.area;
+			var li = document.createElement("li");
+			li.textContent = text;
+			ul.appendChild(li);
+		}
+
+
+
+	}
+
+	citys.onclick = function() {
+		var target = event.target;
+		if(target.tagName === "LI") {
+			out.value = target.textContent;
+			clearResultField();
+			inn.value = "";
+		}
+	}
+
+
+
+		function clearResultField() {
+		result.textContent = "";
+		listIsMade = false;
+	}
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">	
+</head>
+<body>
+
+<div class="mapContainer">
+	
+	<div id ="mainMapWrapper"><img id="mainMap" src="images\maps\map1.jpg" width="900px" height="738.8px">
+	<img id ="pointer" src = "images\pointer.png">
+	</div>
+
+	<div id="wrapper">
+
+	<div id="partOfMap">
+		<img id="innerImg" src="images\maps\map1.jpg">
+		<img id="cursor" src="images\cursor.png" width="30px">
+</div>
+
+
+
+<table id= "checkPanel">
+<tr >
+<td><input type="checkbox" id="fizicalMap"></td>
+<td>Включть детальную карту высот</td>
+</tr>
+
+<tr>
+<td><input type="checkbox" id="ordinaryMap"></td>
+<td>Включть детальную карту</td>
+</tr>
+
+</table>
+<iframe name="area"></iframe>
+<form method="POST" action="/" id="form" target="area">	
+	<input type="text" name="top"><br>
+	<input type="text" name="left"><br>
+	<input type="text" name="districts"><br>
+	<input type="submit" name="">
+</form>
+
+</div>
+
+</div>
+
+
+
+
+
+<script type="text/javascript" src ="script.js" ></script>
+
+<script type="text/javascript" src = "result.js" ></script>
+
+<script type="text/javascript" src = "addOption.js" ></script>
+
+
+<script type="text/javascript">
+
+	var districts = document.getElementsByName('districts')[0];
+	var topp = document.getElementsByName('top')[0];
+	
+	var left = document.getElementsByName('left')[0];
+	var options = document.getElementsByTagName("option");
+	var select = document.getElementsByTagName("select")[0];
+	for(var i = 0; i < options.length; i++) {
+			if(options[i].selected) {
+				districts.value = options[i].value;
+				break;
+			}
+		}
+	
+
+
+	document.body.onclick  = function(e) {
+		var target = e.target;
+		var coord = mainMap.getBoundingClientRect();
+
+		if(target === mainMap) {
+			var t = e.pageY - (coord.top + pageYOffset);
+			var l = e.pageX - (coord.left + pageXOffset);			
+			topp.value = t;
+			left.value = l;
+			pointer.style.top = t - 24 + "px";
+			pointer.style.left = l - 6 + "px";
+			form.submit();
+			topp.value = "";
+			left.value = "";
+		for(var i = 0; i < options.length; i++) {
+			if(options[i].selected) {
+				options[i+1].selected = true;
+				districts.value = options[i+1].value;
+				break;
+			}
+		}
+
+	}
+
+	}
+
+	select.onchange = function(e) {
+
+		for(var i = 0; i < options.length; i++) {
+			if(options[i].selected) {				
+				districts.value = options[i].value;
+				break;
+			}
+		}
+
+	}
+
+
+
+
+</script>
+
+
+
+
+	
+
+</body>
+</html>

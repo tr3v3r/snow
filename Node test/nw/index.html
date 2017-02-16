@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">	
+</head>
+<body>
+
+<div class="mapContainer">
+
+	<div id ="mainMapWrapper">
+		<img id="mainMap" src="images\maps\map1.jpg" width="900px" height="738.8px">
+
+		<div class="svgConteiner">			 
+		</div>
+		
+		<img id ="pointer" src = "images\pointer.png"> 
+	</div>
+
+	
+	<div id="wrapper">
+
+		<div id="partOfMap">
+			<img id="innerImg" src="images\maps\map1.jpg">			
+
+			<img id="cursor" src="images\cursor.png" width="30px">
+		</div>
+
+
+
+		<table id= "checkPanel">
+			<tr >
+				<td><input type="checkbox" id="fizicalMap"></td>
+				<td>Включть детальную карту высот</td>
+			</tr>
+
+		</table>
+
+		<form id = "pickCity">
+			<div class="cityWrapper">
+				<input type="text" name="city" onfocus="this.select()" class="city">
+				<div class="blockOfTowns"></div>
+			</div>
+
+		</form>
+
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript" src = "scripts\result.js" ></script>
+<script type="text/javascript" src = "scripts\pickTown.js" async ></script>
+<script type="text/javascript" src = "scripts\svgMap.js" ></script>
+
+
+
+<script type="text/javascript">
+
+
+
+var svgtest = document.getElementsByClassName("svgMap")[0];
+
+svgtest.onmouseover = function() {
+	var target = event.target;
+
+	if(target.tagName = "path") {
+		target.setAttribute("fill","red");
+		
+	}
+}
+
+svgtest.onmouseout = function() {
+	var target = event.target;
+
+	if(target.tagName = "path") {
+		target.setAttribute("fill","");
+	}
+}
+
+
+svgtest.onclick = function() {
+	var target = event.target;
+
+	if(target.tagName = "path") {
+		alert(target.id)
+	}
+}
+
+</script>
+
+
+
+
+
+	
+
+</body>
+</html>

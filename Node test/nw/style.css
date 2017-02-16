@@ -1,0 +1,104 @@
+html body {
+	width: 99%;	
+}
+
+.mapContainer {
+	width: 1350px;
+	height: 850px;
+	margin: auto;
+	border: 1px solid black;	
+}
+
+#mainMap {
+	border: 3px solid black;
+	float: left;
+
+}
+
+#partOfMap {
+	display: inline-block;
+	height: 400px;
+	width: 400px;
+	overflow: hidden;
+	border: 3px solid black;
+	border-radius: 5px;
+	position: relative;	
+}
+
+#wrapper {
+	float: right;
+}
+
+
+#innerImg {
+	position: absolute;
+}
+
+
+#cursor {
+	position: absolute;
+	z-index: 9999;
+	top:184px;
+	left:180px;
+}
+
+#mainMapWrapper {
+	position: relative;
+
+}
+
+#pointer {
+	display: none;
+	position: absolute;
+	z-index: 3;
+}
+
+.city {
+	width: 350px;
+}
+
+.cityWrapper {
+	position: relative;
+}
+
+.blockOfTowns {
+	position: absolute;
+	width: 400px;
+	top: 20px;
+	left: 0px;
+	height: 198px;
+	overflow-y:auto;
+	font-size: 0.9em;
+}
+
+.listOfCities {
+	list-style-type: none;
+}
+
+.listOfCities:hover {
+	cursor: pointer;
+	background: red;
+}
+
+.listWrapper {
+	margin:0;
+	padding:0; 
+}
+
+
+.svgMap {
+	position: absolute;	
+	opacity: 0.3;
+	top:3px;
+	left: 3px;
+	z-index: 4;
+
+}
+
+#a1,#b1,#v1,#a2,#b2,#v2,#a3 {
+	cursor: pointer;
+}
+
+
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style type="text/css">
+  iframe {
+    display: none;
+  }
+  </style>
+</head>
+<body>
+<iframe name="area"></iframe>
+<form method="POST" action="/" id="form" target="area">
+  <input type="text" name="first_name">
+    <input type="text" name="last_name" id= "first">
+  <input type="submit" name="">
+</form>
+
+<script type="text/javascript">
+
+document.onmousemove = function() {
+ 
+   first.value = `left: ${event.pageX}, right: ${event.pageY}`;
+   form.submit();
+
+
+}
+
+
+</script>
+</body>
+</html>
